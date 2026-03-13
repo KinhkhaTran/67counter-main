@@ -1,0 +1,246 @@
+body {
+  margin: 0;
+  font-family: "Impact", "Arial Black", sans-serif;
+  background: linear-gradient(135deg, #020a1a, #0a1a3a, #0d2255);
+  background-size: 300% 300%;
+  animation: bgMove 8s infinite alternate;
+  color: white;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+@keyframes bgMove {
+  from { background-position: 0% 50%; }
+  to   { background-position: 100% 50%; }
+}
+
+.title-glow {
+  font-size: 60px;
+  margin-top: 40px;
+  color: #ffd740;
+  text-shadow: 0 0 20px #ffd740, 0 0 40px #ffd740;
+  animation: shake 1.2s infinite ease-in-out;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0px); }
+  25% { transform: translateX(-4px); }
+  50% { transform: translateX(4px); }
+  75% { transform: translateX(-2px); }
+  100% { transform: translateX(0px); }
+}
+
+.counter-glow {
+  font-size: 40px;
+  margin-bottom: 20px;
+  color: #7eb8ff;
+  text-shadow: 0 0 12px #7eb8ff;
+  animation: pop 1.2s infinite;
+}
+
+@keyframes pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+.main {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 40px;
+  padding: 20px;
+}
+
+.container {
+  position: relative;
+  width: 640px;
+  height: 480px;
+}
+
+video, canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 640px;
+  height: 480px;
+  transform: scaleX(-1);
+}
+
+.aura {
+  box-shadow: 0 0 30px #1a3a7a, 0 0 60px #1e4a9a;
+  border-radius: 20px;
+  animation: pulseAura 2.5s infinite alternate;
+}
+
+@keyframes pulseAura {
+  from { box-shadow: 0 0 20px #0d2a5c; }
+  to   { box-shadow: 0 0 60px #2a5aaa; }
+}
+
+.side-panel h1.youare {
+  font-size: 40px;
+  color: #ffed4d;
+  text-shadow: 0 0 15px #fff45c;
+  animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0px); }
+}
+
+.image {
+  width: 450px;
+  height: 450px;
+  border-radius: 20px;
+  box-shadow: 0 0 25px #ffd740;
+  object-fit: cover;
+  object-position: center;
+}
+
+@keyframes spinGlow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ✨ BUTTON ✨ */
+.btn-crazy {
+  margin-top: 30px;
+  padding: 15px 40px;
+  font-size: 28px;
+  border: none;
+  border-radius: 12px;
+  background: #1a3a8a;
+  color: #ffd740;
+  text-shadow: 0 0 10px #000;
+  cursor: pointer;
+  box-shadow: 0 0 20px #2a4aaa;
+  transition: 0.2s;
+}
+
+.btn-crazy:hover {
+  transform: scale(1.15) rotate(-3deg);
+  background: #2a4aaa;
+  box-shadow: 0 0 30px #ffd740;
+}
+
+/* Position the container as relative so overlay sits over it */
+.container {
+  position: relative;
+  width: 640px;
+  height: 480px;
+}
+
+/* Full-screen dim overlay */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  background: rgba(0, 0, 0, 0.7); /* dark transparent */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999; /* ensure it sits above video/canvas */
+}
+
+/* Text styling */
+.overlay-text {
+  font-size: 3rem;
+  color: #ffd740;
+  font-weight: bold;
+  text-shadow: 0 0 20px #ffd740;
+  animation: pop 1s infinite;
+}
+
+.jumpscare {
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 9999;
+}
+
+/* Start Button */
+.btn-start {
+  margin: 10px auto 10px;
+  padding: 16px 48px;
+  font-size: 32px;
+  font-family: "Impact", "Arial Black", sans-serif;
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #ffd740, #ffab00);
+  color: #0a1a3a;
+  cursor: pointer;
+  box-shadow: 0 0 25px #ffd740, 0 0 50px rgba(255, 215, 64, 0.3);
+  transition: 0.2s;
+  display: block;
+}
+
+.btn-start:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 40px #ffd740, 0 0 80px rgba(255, 215, 64, 0.5);
+}
+
+/* Timer Display */
+.timer-display {
+  font-size: 64px;
+  color: #ffd740;
+  text-shadow: 0 0 20px #ffd740, 0 0 40px #ffab00;
+  font-family: "Impact", "Arial Black", sans-serif;
+  margin: 8px 0;
+  animation: pop 1s infinite;
+}
+
+/* Time's Up Overlay */
+.times-up {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(10, 26, 58, 0.95);
+  border: 3px solid #ffd740;
+  border-radius: 20px;
+  padding: 24px 48px;
+  z-index: 1500;
+  text-align: center;
+  box-shadow: 0 0 40px #ffd740;
+  animation: pop 1.5s infinite;
+}
+
+.times-up h2 {
+  font-size: 48px;
+  color: #ff4444;
+  text-shadow: 0 0 20px #ff4444;
+  margin-bottom: 8px;
+}
+
+.times-up p {
+  font-size: 36px;
+  color: #ffd740;
+  text-shadow: 0 0 15px #ffd740;
+}
+
+/* Logo (top-left) */
+.logo {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  z-index: 2000;
+  filter: drop-shadow(0 0 10px rgba(255, 215, 64, 0.4));
+}
